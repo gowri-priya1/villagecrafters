@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Feedback - Village Crafters</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('img1.jpg'); /* Replace 'background.jpg' with your background image file */
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #f8f8f8;
+            padding: 20px;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        section {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+        
+        form label {
+            font-weight: bold;
+        }
+        
+        form input[type="text"],
+        form input[type="email"],
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        
+        form input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        
+        footer {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Help & Feedback</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="buying_page.html">Buy Products</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Have Questions or Feedback?</h2>
+        <p>We're here to help! Please fill out the form below and we'll get back to you as soon as possible.</p>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+            
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Village Crafters. All rights reserved.</p>
+    </footer>
+</body>
+</html>

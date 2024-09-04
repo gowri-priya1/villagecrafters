@@ -1,0 +1,13 @@
+<web-app>  
+  
+<servlet>  
+<servlet-name>sampleRegistration</servlet-name>  
+<servlet-class>Registration</servlet-class>  
+</servlet>  
+  
+<servlet-mapping>  
+<servlet-name>sampleRegistration</servlet-name>  
+<url-pattern>/display</url-pattern>  
+</servlet-mapping>  
+  
+</web-app>

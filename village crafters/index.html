@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <style>
+ body {
+ margin: 0;
+ font-family: Arial, sans-serif;
+ color: #333;
+ background-color: #f9f9f9;
+ animation: fadeIn 1s ease-in-out;
+ }
+ @keyframes fadeIn {
+ from {
+ opacity: 0;
+ transform: translateY(-20px);
+ }
+ to {
+ opacity: 1;
+ transform: translateY(0);
+ }
+ }
+ #header {
+ height: 50vh;
+ width: 100%;
+ background: url('https://homefirstindia.com/app/uploads/2020/11/madurai-27.jpg');
+ background-size: cover;
+ background-position: center;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ text-align: center;
+ position: relative;
+ }
+ #header h1 {
+ margin: 0;
+ padding: 20px;
+ background-color: rgba(0, 0, 0, 0.7);
+ color: white;
+ font-size: 2.5rem;
+ }
+ #search {
+ margin-top: 10px;
+ }
+ .heading {
+    font-size: 3rem;
+    color: #333;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Add additional styles for elegance */
+  .heading::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    margin-top: 10px;
+    animation: growLine 2s ease-in-out;
+  }
+
+  @keyframes growLine {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  #sidebar {
+    height: 100vh;
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    left: -350px; /* Initially hidden */
+    top: 0;
+    padding-top: 20px;
+    color: white;
+    transition: left 0.3s ease;
+  }
+
+  #sidebar.open {
+    left: 0; /* Displayed when open */
+  }
+
+  #sidebar h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  #sidebar ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 200px;
+  }
+
+  #sidebar li {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    
+    border-bottom: 1px solid #555;
+    transition: background-color 0.3s ease;
+  }
+  #sidebar li a{
+    color: white;
+    text-decoration: none;
+  }
+
+  #sidebar li:hover {
+   cursor: pointer;
+    background-color: #555;
+  }
+
+  /* Styles for menu icon */
+  #menu-icon {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    cursor: pointer;
+    z-index: 999; /* Ensure menu icon appears above other content */
+    color: white;
+    font-size: 24px;
+  }
+ /* #sidebar {
+ height: 100vh;
+ width: 250px;
+ background-color: rgba(0, 0, 0, 0.9);
+ position: fixed;
+ left: 0;
+ top: 0;
+ padding-top: 20px;
+ color: white;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ }
+ #sidebar h2 {
+ margin-bottom: 20px;
+ }
+ #sidebar ol {
+ list-style: none;
+ padding: 0;
+ margin: 0;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ }
+ #sidebar li {
+ padding: 10px;
+ width: 100%;
+ text-align: center;
+ border-bottom: 1px solid #555;
+ transition: background-color 0.3s ease;
+ }
+ #sidebar li:hover {
+ background-color: #555;
+ } */
+ #content {
+
+ /* margin-left: 260px; */
+ padding: 20px;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ align-items: flex-start;
+ animation: slideInLeft 1s ease-in-out;
+ }
+ @keyframes slideInLeft {
+ from {
+ opacity: 0;
+ transform: translateX(-20px);
+ }
+ to {
+ opacity: 1;
+ transform: translateX(0);
+ }
+ }
+ .image-container {
+   height: 300px;
+ flex: 1 1 300px;
+ margin: 20px;
+ position: relative;
+ overflow: hidden;
+ border-radius: 8px;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ 
+ }
+ .image-container img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ transition: transform 0.3s ease;
+ }
+ .image-container:hover img {
+ transform: scale(1.05);
+ }
+ .button-container {
+ position: absolute;
+ bottom: 10px;
+ left: 50%;
+ transform: translateX(-50%);
+ width: 80%;
+ }
+ .button {
+ width: 100%;
+ padding: 10px;
+ background-color: #555;
+ color: white;
+ text-align: center;
+ cursor: pointer;
+ }
+ #running-comment {
+ color: #666;
+ text-align: center;
+ margin-top: 20px;
+ font-style: italic;
+ font-size: 1.2rem;
+ animation: fadeIn 1s ease-in-out;
+ }
+ #footer {
+ margin-top: 20px;
+ padding: 20px;
+ background-color: rgba(0, 0, 0, 0.9);
+ color: white;
+ text-align: center;
+ }
+ #running-comment {
+ background-color: #f0f0f0;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ padding: 20px;
+ margin: 20px auto;
+ max-width: 800px;
+ text-align: justify;
+ animation: slideIn 1s ease-in-out;
+}
+@keyframes slideIn {
+ from {
+ opacity: 0;
+ transform: translateY(-20px);
+ }
+ to {
+ opacity: 1;
+ transform: translateY(0);
+ }
+}
+#running-comment p {
+ animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+ from {
+ opacity: 0;
+ }
+ to {
+ opacity: 1;
+ }
+}
+h1 {
+ text-align: center;
+}
+#main {
+ text-align: justify;
+ max-width: 800px;
+ margin: 0 auto;
+ padding: 0 20px;
+}
+ </style>
+ <title>Crafters Village</title>
+</head>
+<body>
+ <div id="header">
+ <h1 class="heading">CraftersVillage</h1>
+ <!-- <div id="search">
+ <input type="text" placeholder="Search">
+ </div> -->
+ </div>
+ <!-- <div id="sidebar">
+ <h2>Menu</h2>
+ <ol>
+ <li>Home</li>
+ <li>Local artistry</li>
+ <li>DIY crafts</li>
+ <li>Business Directory</li>
+ <li>Community support</li>
+ <li>Skill Learning</li>
+ <li>Help</li>
+ <li>Feedback</li>
+ <li>Gallery</li>
+ </ol>
+ </div> -->
+ <div id="menu-icon">&#9776;</div>
+
+ <!-- Sidebar navigation -->
+ <div id="sidebar">
+   <h2>Menu</h2>
+   <ol>
+     <li><a href = '#'>Home</a></li>
+     <!-- <li>get Info</li> -->
+     <li><a href="gallery.html">Gallery</a></li>
+     <li>DIY crafts</li>
+     <!-- <li>Business Directory</li>
+     <li>Community support</li>
+     <li>Skill Learning</li> -->
+     <li><a href="help.html">Help</a></li>
+     
+     <li><a href="registration.jsp">Register</a></li>
+     <li><a href="">Profile</a></li>
+     <li><a href="./community_forum/index.html">E-commerce</a></li>
+     
+   </ol>
+ </div>
+ <div id="content">
+ <div class="image-container">
+ <img src="https://plus.unsplash.com/premium_photo-1697729593611-3b6f014a5534?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 1">
+ <div class="button-container">
+ <button class="button">Artistry</button>
+ </div>
+ </div>
+ <div class="image-container">
+ <img src="https://plus.unsplash.com/premium_photo-1661681096189-810e2706cf39?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 2">
+ <div class="button-container">
+ <button class="button">DIY</button>
+ </div>
+ </div>
+ <div class="image-container">
+ <img src="https://images.unsplash.com/photo-1569909115134-a0426936c879?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 3">
+ <div class="button-container">
+ <button class="button">Learn skill</button>
+ </div>
+ </div>
+ <!-- Additional images for the gallery -->
+ <div class="image-container">
+ <img src="https://img.freepik.com/premium-photo/display-pottery-from-village-madurai_900370-5840.jpg" alt="Image 4">
+ <div class="button-container">
+ <button class="button">Gallery</button>
+ </div>
+ </div>
+ <div class="image-container">
+ <img src="https://5.imimg.com/data5/DG/PZ/RT/ANDROID-26807597/product-jpeg-500x500.jpg" alt="Image 5">
+ <div class="button-container">
+ <button class="button">Gallery</button>
+ </div>
+ </div>
+ <div class="image-container">
+ <img src="https://5.imimg.com/data5/ANDROID/Default/2021/10/PK/MU/EK/140088168/product-jpeg.jpg" alt="Image 6">
+ <div class="button-container">
+ <button class="button">Gallery</button>
+ </div>
+ </div>
+ </div>
+ <div id="running-comment">
+   <p>"Art exists in both ancient times and new worlds; it captures the evolution of our inner being."</p>
+   </div>
+   <h1>MADURAI-City of Culture</h1>
+   <p id="main">
+   Madurai, the cultural capital of Tamil Nadu, India, is a treasure trove of small-scale industries specializing in exquisite handmade products, traditional arts, and unique pottery. For centuries, skilled artisans have poured their hearts and souls into creating masterpieces, earning the city a well-deserved reputation for its vibrant craftsmanship. Here's a glimpse into some of the most celebrated handmade products and arts of Madurai:
+   <br>
+   <u><b>Black Pottery:</u></b><br>
+   Madurai's black pottery is renowned for its distinctive shine and intricate patterns, often featuring geometric designs and floral motifs. These stunning pieces range from cookware and tableware to decorative figurines and lamps.
+   <br>
+   <u><b>Terracotta:</u></b><br>
+   Madurai's terracotta creations encompass a diverse range of items, from cookware and religious figurines to decorative pots and architectural elements. The natural terracotta color adds a touch of earthy elegance to any space.
+   <br>
+   <u><b>Handloom Cotton Fabrics:</u></b><br>
+   Soft and breathable handloom cotton fabrics, featuring colorful prints and traditional designs, are perfect for creating comfortable and stylish clothing. They are a testament to the skill of Madurai's weavers and a sustainable alternative to mass-produced textiles.
+   <br>
+   <u><b>Brass and Bronze Sculptures:</u></b><br>
+   Madurai's metalworkers create stunning sculptures of Hindu deities, animals, and mythological figures using brass and bronze. These intricate pieces are often adorned with precious stones and intricate detailing, making them true works of art.
+   </p>
+ <div id="footer">
+ <h3>FAQ</h3>
+ <p>Contact us: support@craftersvillage.com</p>
+ </div>
+
+ <script>
+   
+    const menuIcon = document.getElementById('menu-icon');
+    const sidebar = document.getElementById('sidebar');
+    const content = document.getElementById('content');
+
+    menuIcon.addEventListener('click', function() {
+      sidebar.classList.toggle('open');
+      // Adjust content margin-left based on sidebar visibility
+      if (sidebar.classList.contains('open')) {
+        content.style.marginLeft = '250px'; // Open sidebar
+        content.style.transition = '0.5s ease'
+      } else {
+        content.style.marginLeft = '0'; // Close sidebar
+      }
+    });
+  
+ </script>
+</body>
+</html>

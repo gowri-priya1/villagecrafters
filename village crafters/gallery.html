@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    body {
+      background-image: url("bg.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      overflow: scroll;
+    }
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .search-container .input-group {
+      max-width: 400px;
+      width: 50%;
+    }
+    .input-group-prepend .input-group-text {
+      background-color: transparent;
+      border: none;
+    }
+    .input-group input {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    .input-group-append button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    .card{
+      border-color: rgb(255, 241, 113);
+    }
+    .card-img-top {
+      height: 300px;
+      object-fit: cover;
+    }
+  </style>
+  <title>Gallery</title>
+</head>
+<body>
+  <br>
+  <header class="text-center">
+    <div class="search-container">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">&#x1F50D;</span>
+        </div>
+        <input type="text" id="searchInput" class="form-control" placeholder="Search for Academies" aria-label="Search for academies" aria-describedby="searchButton">
+        <div class="input-group-append">
+          <button class="btn btn-warning" type="button" id="searchButton" onclick="search()">Search</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="row">
+    <div class="col-6">
+      <div class="card">
+        <img class="card-img-top" src="pot.jpg" alt="Image Unavailable ">
+        <a href="#" class="btn btn-primary" onmouseover="details('velachery','demo')" onmouseout="clearDetails('demo')">Know about this</a>
+        <p id="demo"></p>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card">
+        <img class="card-img-top" src="statue.jpg" alt="Image Unavailable">
+        <a href="#" class="btn btn-primary" onmouseover="details('statueCasting','demo1')" onmouseout="clearDetails('demo1')">Know about this</a>
+        <p id="demo1"></p>
+      </div>
+    </div>
+  </div><br>
+  <div class="row">
+    <div class="col-6">
+      <div class="card">
+        <img class="card-img-top" src="temple.jpg" alt="Image Unavailable">
+        <a href="#" class="btn btn-primary" onmouseover="details('crafting','demo2')" onmouseout="clearDetails('demo2')">Know about this</a>
+        <p id="demo2"></p>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card">
+        <img class="card-img-top" src="weaving.jpg" alt="Image Unavailable">
+        <a href="#" class="btn btn-primary" onmouseover="details('silkWeaving','demo3')" onmouseout="clearDetails('demo3')">Know about this</a>
+        <p id="demo3"></p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const academies = {
+      velachery: {
+        name: "Velachery Pottery",
+        content: "Explore the ancient art of pottery at Velachery Pottery Academy. Learn to shape clay into beautiful pottery pieces using traditional techniques passed down through generations.",
+        description: "Address: 123 Main Street, Velachery, Madurai.\nPhone: +1234567890",
+      },
+      statueCasting: {
+        name: "Statue Casting Academy",
+        content: "Discover the art of statue casting at our academy. From intricate sculptures to majestic monuments, learn the craftsmanship required to bring life to your creations.",
+        description: "Address: 456 Elm Street, Madurai.\nPhone: +1987654321",
+      },
+      crafting: {
+        name: "Crafting Academy",
+        content: "Unleash your creativity at Crafting Academy. From paper crafts to woodworking, our expert instructors will guide you in mastering a variety of crafting techniques.",
+        description:"Address: 789 Oak Avenue, Madurai.\nPhone: +9876543210",
+      },
+      silkWeaving: {
+        name: "Silk Weaving Academy",
+        content: "Immerse yourself in the rich tradition of silk weaving at our academy. Learn the delicate art of weaving silk threads into luxurious fabrics, preserving a centuries-old heritage.",
+        description: "Address: 321 Maple Road, Madurai.\nPhone: +0123456789",
+      }
+    };
+    function search() {
+        const searchQuery = document.getElementById("searchInput").value.trim().toLowerCase();   // Retrieve the search query entered by the user
+        if (searchQuery === "") {   // Check if the search query is empty
+          alert("Please enter a name to search.");
+          return; 
+        }
+        for (const key in academies) {      // Iterate through the academies object to find matches with the search query
+            if (academies.hasOwnProperty(key)) {
+                const academy = academies[key];
+                // Check if the academy name contains the search query
+                if (academy.name.toLowerCase().includes(searchQuery.toLowerCase())) {
+                    alert(`Academy Name: ${academy.name}\n${academy.content}\n`);
+                }
+            }
+        }
+    }
+    function details(academy, paragraphId) {
+      const academyDetails = academies[academy];
+      if (academyDetails) {
+        // Update the paragraph element with the given ID with the academy's description
+        document.getElementById(paragraphId).innerHTML = academyDetails.name+"<br>"+academyDetails.description;
+      }
+    }
+    function clearDetails(paragraphId) {
+      // Clear the content of the paragraph element with the given ID
+      document.getElementById(paragraphId).innerHTML = "";
+    }
+  </script>
+</body>
+</html>
